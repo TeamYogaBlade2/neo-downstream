@@ -2,6 +2,16 @@
 # Makefile for the linux kernel.
 #
 
+include $(srctree)/drivers/misc/mediatek/Makefile.custom
+
+ccflags-y += -I$(srctree)/
+
+ifeq ($(CONFIG_MTK_INTERNAL), y)
+ifeq ($(MTK_USE_RESERVED_EXT_MEM), y)
+KBUILD_CFLAGS += -DMTK_USE_RESERVED_EXT_MEM
+endif
+endif
+
 obj-y := core.o irq.o timer.o mt_dbg.o
 obj-y += mt_devs.o mt_gpt.o mt_boot.o board.o mt_pm_init.o
 obj-y += ca7_timer.o dram_overclock.o
@@ -19,8 +29,8 @@ obj-y += camera_pipe_mgr.o
 obj-y += mt_pm_ldo.o
 obj-y += innercache.o mt_cache_dump.o
 obj-y += mt_dma.o
-ccflags-y += -I$(MTK_PATH_PLATFORM)/drivers/power \
-             -I$(MTK_PATH_SOURCE)/drivers/wdk
+#ccflags-y += -I$(MTK_PATH_PLATFORM)/drivers/power \
+#             -I$(MTK_PATH_SOURCE)/drivers/wdk
 obj-y += mt_spm.o mt_spm_sleep.o mt_spm_idle.o mt_spm_mtcmos.o
 obj-y += mt_sleep.o
 obj-y += mt_cpufreq.o
