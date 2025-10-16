@@ -101,4 +101,5 @@ endif
 
 KBUILD_AFLAGS	:=$(KBUILD_AFLAGS:-msoft-float=-Wa,-mfpu=neon)
 
-
+# Module project related part
+obj-y += $(ARCH_MTK_PROJECT)/
