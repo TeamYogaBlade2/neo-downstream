@@ -16,7 +16,11 @@
 
 #include <linux/types.h>
 #include <mach/dfo_boot.h>
+
+#ifdef CONFIG_MEDIATEK_SOLUTION
 #include <mach/mt_devinfo.h>
+
+#ifdef CONFIG_ARCH_MT6582
 #include <mach/mt_keypad_ssb_cust.h>
 #include <mach/mt_auxadc_ssb_cust.h>
 #include <mach/mt_msdc_ssb_cust.h>
@@ -26,6 +30,8 @@
 #include <mach/mt_touch_ssb_cust.h>
 #include <mach/mt_audio_ssb_cust.h>
 #include <mach/battery_ssb.h>
+#endif
+#endif
 
 #define COMMAND_LINE_SIZE 1024
 
@@ -154,6 +160,9 @@ struct tag_memclk {
 	__u32 fmemclk;
 };
 
+
+#ifdef CONFIG_MEDIATEK_SOLUTION
+
 /* boot information */
 #define ATAG_BOOT       0x41000802
 
@@ -177,10 +186,14 @@ struct tag_mdinfo_data{
 };
 
 
+#ifdef CONFIG_ARCH_MT6582
+
 #define ATAG_LCMINFO_DATA         (0x41000807)
 struct tag_lcminfo_data{
    u32 lcm_index;
 };
+
+#endif
 
 
 struct tag_para_lcm_data{
@@ -191,6 +204,9 @@ struct tag_para_lcm_data{
 struct tag_ddr_dfs_info_data{
    u32 dfs_enable;
 };
+
+
+#ifdef CONFIG_ARCH_MT6582
 
 struct tag_eint_data {
     char magic[4];
@@ -237,6 +253,11 @@ struct tag_model_version_info_data {
     char model[32];
     unsigned int version;
 };
+
+#endif
+
+#endif
+
 struct tag {
 	struct tag_header hdr;
 	union {
@@ -259,11 +280,14 @@ struct tag {
 		 * DC21285 specific
 		 */
 		struct tag_memclk	memclk;
+
+#ifdef CONFIG_MEDIATEK_SOLUTION
 		struct tag_boot         boot;
 		struct tag_meta_com     meta_com;
 		struct tag_devinfo_data devinfo_data;
 		tag_dfo_boot     dfo_data;
 		struct tag_mdinfo_data mdinfo_data;
+#ifdef CONFIG_ARCH_MT6582
 		struct _gpio_usage gpio_usage_data;
 		struct tag_para_keypad_ssb_data keypad_ssb_cust;
 		struct tag_para_auxadc_ssb_data auxadc_ssb_cust;
@@ -271,7 +295,9 @@ struct tag {
 		struct tag_lcminfo_data lcminfo_data;
 		struct tag_para_lcm_data lcm_data;
 		struct tag_para_touch_ssb_data touch_ssb_cust;
+#endif
 		struct tag_ddr_dfs_info_data dfs_data;
+#ifdef CONFIG_ARCH_MT6582
 		struct tag_eint_data eint_data;
 		struct tag_audiopa_data audiopa_data;
 		struct tag_model_version_info_data model_version_data;
@@ -281,6 +307,9 @@ struct tag {
 		struct tag_vibrator_data vibrator_data;
 		struct tag_leds_data leds_data;
 		struct tag_battery_info_data battery_data;
+#endif
+#endif
+
 	} u;
 };
 

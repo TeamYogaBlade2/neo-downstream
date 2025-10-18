@@ -1,3 +1,6 @@
+CONFIG_MTK_PLATFORM="mt6589"
+CONFIG_ARCH_MTK_PROJECT="aquaris-5"
+
 #
 # Automatically generated file; DO NOT EDIT.
 # Linux/arm 3.4.67 Kernel Configuration

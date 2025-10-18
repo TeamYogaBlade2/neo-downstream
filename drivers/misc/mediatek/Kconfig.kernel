@@ -276,7 +276,7 @@ config L1C_OPT
 
 config VFP_OPT
     bool "VFP OPT"
-    depends on ARCH_MT6582
+    depends on ARCH_MT6582 || ARCH_MT6589
     default y
 endmenu
 
