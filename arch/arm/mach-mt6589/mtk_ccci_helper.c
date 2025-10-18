@@ -20,7 +20,7 @@
 #include <mach/eint.h>
 #include <mach/mt_gpio.h>
 #include <mach/mt_reg_base.h>
-#include <mt6320_battery.h>
+#include <../../../drivers/misc/mediatek/power/mt6589/mt6320_battery.h>
 #include <mach/pmic_mt6320_sw.h>
 #include <mach/upmu_common.h>
 #include <mach/upmu_hw.h>
