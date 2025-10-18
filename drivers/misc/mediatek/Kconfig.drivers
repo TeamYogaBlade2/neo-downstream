@@ -648,6 +648,26 @@ config PVR_BUILD_DEBUG_MT6572
 
 endchoice
 
+config PVR_SGX_MT6589
+        tristate "PowerVR SGX support"
+        depends on ARCH_MT6589
+        default m
+        ---help---
+          Enable this option to build support for the PowerVR SGX 3D core.
+
+choice
+        prompt "PowerVR build type"
+        depends on PVR_SGX_MT6589
+        default PVR_BUILD_RELEASE_MT6589
+
+config PVR_BUILD_RELEASE_MT6589
+        bool "Release"
+
+config PVR_BUILD_DEBUG_MT6589
+        bool "Debug"
+
+endchoice
+
 config MTK_GPU_CHIP
 	string "MTK_GPU_CHIP"
 	default "RGX_HAN" if PVR_RGX_MT8135
