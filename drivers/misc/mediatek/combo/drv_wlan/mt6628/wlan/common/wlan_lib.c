@@ -3476,6 +3476,7 @@ wlanConfigWifiFunc (
 * @return crc32 value
 */
 /*----------------------------------------------------------------------------*/
+/*
 UINT_32 wlanCRC32(
     PUINT_8 buf,
     UINT_32 len)
@@ -3540,6 +3541,7 @@ UINT_32 wlanCRC32(
 
     return ( ~crc32 );
 }
+*/
 #endif
 
 
