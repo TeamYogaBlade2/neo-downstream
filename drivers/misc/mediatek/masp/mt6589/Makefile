@@ -8,13 +8,13 @@ MASP_CORE_DRIVER_DIR := $(srctree)/drivers/misc/mediatek/masp/$(MTK_PLATFORM)
 
 lib_obj := src/sec_mod.o
 
-include $(MASP_CORE_DRIVER_DIR)/Makefile.core
+include $(MASP_CORE_DRIVER_DIR)/asf/Makefile.core
 
 ifeq ($(CONFIG_CUSTOM_SEC_AUTH_SUPPORT),y)
 CCCI_CUSTOM_DRIVER_DIR := $(call my-dir)$(call to-root,$(obj))mediatek/custom/out/$(call lc,$(MTK_PROJECT))/kernel/ccci
 lib_obj += $(CCCI_CUSTOM_DRIVER_DIR)/cust_auth.o
 else
-include $(MASP_CORE_DRIVER_DIR)/Makefile.crypto
+include $(MASP_CORE_DRIVER_DIR)/asf/Makefile.crypto
 lib_obj += $(crypto_obj)
 lib_obj += auth/sec_wrapper.o
 endif
