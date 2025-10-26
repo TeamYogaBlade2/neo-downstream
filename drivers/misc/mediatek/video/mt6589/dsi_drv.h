@@ -9,6 +9,7 @@
 #endif
 
 #include "lcm_drv.h"
+#include "disp_intr.h"
 
 #ifdef __cplusplus
 extern "C" {

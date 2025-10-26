@@ -89,7 +89,7 @@ static unsigned int vsync_timer = 0;
 #undef MTK_LCDC_ENABLE_M4U
 #endif
 // UI layer, default set to 3
-unsigned int FB_LAYER = DISP_DEFAULT_UI_LAYER_ID;
+//unsigned int FB_LAYER = DISP_DEFAULT_UI_LAYER_ID;
 
 static size_t dbi_log_on = false;
 #define DBI_LOG(fmt, arg...) \

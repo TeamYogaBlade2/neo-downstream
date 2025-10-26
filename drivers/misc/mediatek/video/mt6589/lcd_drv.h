@@ -10,6 +10,9 @@ extern "C" {
 #ifndef BUILD_UBOOT
 #include <linux/proc_fs.h>
 #endif
+
+#include "disp_intr.h"
+
 // ---------------------------------------------------------------------------
 
 #define LCD_CHECK_RET(expr)             \
