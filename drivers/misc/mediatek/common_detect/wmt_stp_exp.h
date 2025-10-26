@@ -190,7 +190,7 @@ typedef enum _SDIO_PS_OP{
 
 typedef INT32 (*PF_WMT_SDIO_PSOP)(SDIO_PS_OP);
 
-/*
+
 typedef enum _ENUM_WMTCHIN_TYPE_T{
    WMTCHIN_CHIPID = 0x0,
    WMTCHIN_HWVER = WMTCHIN_CHIPID + 1,
@@ -199,7 +199,6 @@ typedef enum _ENUM_WMTCHIN_TYPE_T{
    WMTCHIN_MAX,
    
 }ENUM_WMT_CHIPINFO_TYPE_T, *P_ENUM_WMT_CHIPINFO_TYPE_T;
-*/
 
 /*end moved from wmt_exp.h*/
 
