@@ -58,7 +58,7 @@ static int WIFI_devs = 1;        /* device count */
 static int WIFI_major = WIFI_DEV_MAJOR;       /* dynamic allocation */
 module_param(WIFI_major, uint, 0);
 static struct cdev WIFI_cdev;
-volatile int retflag = 0;
+static volatile int retflag = 0;
 static struct semaphore wr_mtx;
 
 static int WIFI_open(struct inode *inode, struct file *file)

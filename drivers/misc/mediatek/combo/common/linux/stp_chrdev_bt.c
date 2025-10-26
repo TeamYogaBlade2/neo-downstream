@@ -66,7 +66,7 @@ static struct semaphore wr_mtx, rd_mtx;
 static wait_queue_head_t inq;    /* read queues */
 static DECLARE_WAIT_QUEUE_HEAD(BT_wq);
 static int flag = 0;
-volatile int retflag = 0;
+static volatile int retflag = 0;
 
 unsigned char g_bt_bd_addr[10]={0x01,0x1a,0xfc,0x06,0x00,0x55,0x66,0x77,0x88,0x00};
 unsigned char g_nvram_btdata[8];
