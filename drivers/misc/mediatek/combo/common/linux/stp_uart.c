@@ -58,7 +58,7 @@
 #define MAX_PACKET_ALLOWED                2000
 
 
-unsigned int gDbgLevel = UART_LOG_INFO;
+static unsigned int gDbgLevel = UART_LOG_INFO;
 
 #define UART_DBG_FUNC(fmt, arg...)    if(gDbgLevel >= UART_LOG_DBG){  printk(KERN_DEBUG PFX "%s: "  fmt, __FUNCTION__ ,##arg);}
 #define UART_INFO_FUNC(fmt, arg...)   if(gDbgLevel >= UART_LOG_INFO){ printk(PFX "%s: "  fmt, __FUNCTION__ ,##arg);}

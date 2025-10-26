@@ -44,7 +44,7 @@ MODULE_LICENSE("Dual BSD/GPL");
 #define COMBO_IOC_MAGIC        0xb0
 #define COMBO_IOCTL_FW_ASSERT  _IOWR(COMBO_IOC_MAGIC, 0, void*)
 
-unsigned int gDbgLevel = BT_LOG_INFO;
+static unsigned int gDbgLevel = BT_LOG_INFO;
 
 #define BT_DBG_FUNC(fmt, arg...)    if(gDbgLevel >= BT_LOG_DBG){ printk(PFX "%s: "  fmt, __FUNCTION__ ,##arg);}
 #define BT_INFO_FUNC(fmt, arg...)   if(gDbgLevel >= BT_LOG_INFO){ printk(PFX "%s: "  fmt, __FUNCTION__ ,##arg);}

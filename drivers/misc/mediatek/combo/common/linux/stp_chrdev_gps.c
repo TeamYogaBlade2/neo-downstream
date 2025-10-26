@@ -49,7 +49,7 @@ MODULE_LICENSE("GPL");
 
 #define COMBO_IOC_GPS_HWVER           6
 
-unsigned int gDbgLevel = GPS_LOG_DBG;
+static unsigned int gDbgLevel = GPS_LOG_DBG;
 
 #define GPS_DBG_FUNC(fmt, arg...)    if(gDbgLevel >= GPS_LOG_DBG){ printk(PFX "%s: "  fmt, __FUNCTION__ ,##arg);}
 #define GPS_INFO_FUNC(fmt, arg...)   if(gDbgLevel >= GPS_LOG_INFO){ printk(PFX "%s: "  fmt, __FUNCTION__ ,##arg);}
