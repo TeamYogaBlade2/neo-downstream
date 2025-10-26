@@ -9,7 +9,7 @@
 //==============================================================//
 static unsigned int ccci_drv_ver[MAX_MD_NUM] = {CCCI1_DRIVER_VER, CCCI2_DRIVER_VER};
 #ifdef ENABLE_SW_MEM_REMAP 
-static int md_2_ap_phy_addr_offset_fixed = 0;
+//static int md_2_ap_phy_addr_offset_fixed = 0;
 int get_md2_ap_phy_addr_fixed()
 {
 	return md_2_ap_phy_addr_offset_fixed;
