@@ -10,6 +10,7 @@ endif
 
 obj-y	+=  accdet/
 obj-y	+= leds/
+obj-y	+= camera/camera/
 
 #include $(MTK_PATH_BUILD)/common.mk
 #$(call all-modules-src-or-makefile,$(obj),CUSTOM_KERNEL_)
