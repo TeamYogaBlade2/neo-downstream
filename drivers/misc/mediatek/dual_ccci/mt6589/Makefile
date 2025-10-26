@@ -15,8 +15,22 @@ obj-$(CONFIG_MTK_CCCI_DRIVER) += ccci_plat.o
 ccci_plat-y :=src/ccci_platform.o
 ccci_plat-y +=src/ccci_settings.o
 
-include $(MASP_CORE_DRIVER_DIR)/asf/Makefile.core
-#ccci_plat-y += $(core_obj)
+#ifeq ($(CONFIG_MTK_SECURITY_SW_SUPPORT), y)
+
+#include $(MASP_CORE_DRIVER_DIR)/asf/Makefile.core
+
+##ccci_plat-y += $(core_obj)
+
+##ifeq ($(strip $(TRUSTONIC_TEE_SUPPORT)),y)
+#ifeq ($(strip $(TRUSTONIC_TEE_SUPPORT)),temp_disable_1120)
+
+#mach_obj += mach/hacc_tee_req.o
+#mach_obj += mach/hacc_tee.o
+#mach_obj += mach/hacc_service.o
+#ccflags-y += -DTRUSTONIC_TEE_SUPPORT
+#else
+#include $(MASP_CORE_DRIVER_DIR)/mach/Makefile.mach
+#endif
 
 ifeq ($(CONFIG_CUSTOM_SEC_AUTH_SUPPORT),y)
 CCCI_CUSTOM_DRIVER_DIR := $(MTK_PATH_CUSTOM)/$(call lc,$(MTK_PROJECT))/kernel/ccci
@@ -65,9 +79,9 @@ ifeq ($(CONFIG_MTK_SEC_MODEM_NVRAM_ANTI_CLONE), y)
 ccflags-y  += -DMTK_SEC_MODEM_NVRAM_ANTI_CLONE
 endif
 
-else
-obj-  := dummy.o
-endif
+#else
+#obj-  := dummy.o
+#endif
 
 #obj-  := dummy.o
 #my-dir := $(dir $(lastword $(MAKEFILE_LIST)))
