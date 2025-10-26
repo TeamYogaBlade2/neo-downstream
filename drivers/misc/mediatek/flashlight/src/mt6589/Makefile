@@ -1,0 +1,24 @@
+#
+# Makefile for misc devices that really don't fit anywhere else.
+#
+include $(srctree)/drivers/misc/mediatek/Makefile.custom
+
+obj-y				+= kd_flashlightlist.c
+obj-y				+= main_strobe_2ndPart_2.c
+obj-y				+= strobe_part_id.c
+obj-y				+= sub_strobe.c
+obj-y				+= sub_strobe_2ndPart_2.c
+
+
+ifeq ($(wildcard $(srctree)/arch/arm/mach-$(MTK_PLATFORM)/$(ARCH_MTK_PROJECT)/flashlight),)
+
+
+
+custom_kernel_flashlight := $(addsuffix /, $(shell echo $(CONFIG_CUSTOM_KERNEL_FLASHLIGHT)))
+
+obj-y += $(custom_kernel_flashlight)
+
+
+
+
+endif
